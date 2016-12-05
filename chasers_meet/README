@@ -1,0 +1,23 @@
+The situation is that there are n chasers, and someone is observing them. At a given point of observation, the any chaser can be
+characterized by their position and speed at that point of observation. The speed is assumed to be constant and position varies with
+every step the chaser runs. 
+
+Problem is to determine that from a given observation point in time, at which each chaser is at a given position and running 
+with a given speed, will all the chasers meet at some time in future at the same location? Means, after some time, will they be
+able to manage to gather at same position if they keep running with their corresponding speeds?
+
+This is solved using linear algebra. 
+Suppose there are two chasers at t = 0, at positions x_1 and x_2, and running with speeds v_1 and v_2 respectively.
+If they have to meet at some point, say after time t_f, and they meet at position t_f, then
+total distance run by chaser 1 before meeting chaser 2 is x_f-x_1 and 
+total distance run by chaser 2 before meeting chaser 1 is x_f-x_2.
+
+Because they meet at time t_f, we know that
+(x_f-x_1) = v_1*t
+(x_f-x_2) = v_2*t
+
+This is a set of two equations in two unknowns: x_f and t_f.
+If x_f > 0 and t_f > 0, then we conclude that the chasers meet, otherwise they dont meet.
+
+For two chasers, it can be very easily solved. But for more number of chasers, we get more equations
+
