@@ -17,7 +17,7 @@ Because they meet at time t_f, we know that
 This is a set of two equations in two unknowns: x_f and t_f.
 If x_f > 0 and t_f > 0, then we conclude that the chasers meet, otherwise they dont meet.
 
-(B) Linear algebra
+(B) Linear algebra [chasers_meet_linear_algebra.py]
 For two chasers, it can be very easily solved. But for more number of chasers, we get more equations. Consider the case of four chasers.
 They are running at speeds and positions given as x_1, v_1, x_2, v_2, x_3, v_3, x_4 and v_4. Their chase generates these four equations:
 x_f-x_1 = v_1*t
