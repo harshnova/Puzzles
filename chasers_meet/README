@@ -1,4 +1,4 @@
-The situation is that there are n chasers, and someone is observing them. At a given point of observation, the any chaser can be
+The situation is that there are n chasers, and someone is observing them. At a given point of observation, any chaser can be
 characterized by their position and speed at that point of observation. The speed is assumed to be constant and position varies with
 every step the chaser runs. 
 
