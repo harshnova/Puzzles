@@ -10,7 +10,7 @@ import numpy as np
 #Speed is assumed to be constant and location changes with every step of run
 def chase_meet(*arg):
     try:
-        if((len(arg)%2 == 0) and (len(arg) > 0)):
+        if((len(arg)%2 == 0) and (len(arg) >= 4)):
             params = locals()
             configuration = list(params['arg'])
             coeff = []
