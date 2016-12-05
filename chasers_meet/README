@@ -33,11 +33,20 @@ We can translate this to matrix multiplication
 |1  -v_1  0   0|     |0  |     |x_3|
 |1  -v_1  0   0|     |0  |     |x_4|
 --            --     -- --     -- --
-Notice the 0's are appended to the two matrices on LHS. This is because to solve x_f and t_f, we need to invert the 4x4 matrix and inversion needs the matrix to be square. Also, the second matrix on LHS needs to match its number of rows with number of columns in the first matrix. So two zeroes are padded into it. However, the 4x4 matrix created like this is singular and can not be inverted normally. We rather pseudo invert this 4x4 matrix and multiply it with the matrix on the RHS to solve x_f and x_t.
+Notice the 0's are padded to the two matrices on LHS. This is because to solve x_f and t_f, we need to invert the 4x4 matrix and inversion needs the matrix to be square. Also, the second matrix on LHS needs to match its number of rows with number of columns in the first matrix. So two zeroes are padded into it. However, the 4x4 matrix created like this is singular and can not be inverted normally. We rather pseudo invert this 4x4 matrix and multiply it with the matrix on the RHS to solve x_f and x_t.
 
 We can extend this idea to n chasers.
 
 Lets look at the code:
-See the example on line 52, as how the arguments are passed into the method. There are four parameters with two parameters corresponding to each of the chaser, means there are two chasers. 
-Line 13 checks if two parameters corresponding to each chaser is supplied and there are actually two or more chasers.
+See the example on line 51, as how the arguments are passed into the method. There are four parameters with two parameters corresponding to each of the chaser, means there are two chasers. 
+On Line 13 we check if two parameters corresponding to each chaser is supplied and there are actually two or more chasers.
+On line 21 we calculate the number of chasers.
+On line 22-23 we prepare the zeroes for padding as explained their need above. We subtract 2 because two matrix elements (1 and -v_i) are already there.
+On line 25-29 we segregate the position values and speed values into separate lists, towards construction of matrices.
+On line 30-32 we convert the lists to numpy arrays so that matrix calculations can be made possible using numpy operators. We delete three lists which dont have any further use.
+On line 33 we generate result by multiplying the pseudo inverse n x n matrix and column vector containing positions. The result vector contains the values of x_f and t_f that we need as a solution of this problem.
+On line 35 we identify if x_f > 0 and t_f > 0 that makes real world sense, and publish our conclusion based on that.
+
+
+
 
