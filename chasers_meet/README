@@ -45,7 +45,7 @@ On line 22-23 we prepare the zeroes for padding as explained their need above. W
 On line 25-29 we segregate the position values and speed values into separate lists, towards construction of matrices.
 On line 30-32 we convert the lists to numpy arrays so that matrix calculations can be made possible using numpy operators. We delete three lists which dont have any further use.
 On line 33 we generate result by multiplying the pseudo inverse n x n matrix and column vector containing positions. The result vector contains the values of x_f and t_f that we need as a solution of this problem.
-On line 35 we identify if x_f > 0 and t_f > 0 that makes real world sense, and publish our conclusion based on that.
+On line 35 we identify if x_f >= 0 and t_f >= 0 that makes real world sense, and publish our conclusion based on that.
 
 
 
