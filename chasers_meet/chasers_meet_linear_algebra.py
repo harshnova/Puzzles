@@ -10,7 +10,7 @@ import numpy as np
 #Speed is assumed to be constant and location changes with every step of run
 def chase_meet(*arg):
     try:
-        if((len(arg)%2 == 0) and (len(arg) > 0)):
+        if((len(arg)%2 == 0) and (len(arg) >= 4)):
             params = locals()
             configuration = list(params['arg'])
             coeff = []
@@ -33,7 +33,7 @@ def chase_meet(*arg):
                 result_vector = np.matmul(np.linalg.pinv(coeff_matrix), position_vector)
                 print(result_vector)
                 del coeff_matrix, position_vector
-                if((result_vector[0] > 0) and (result_vector[1] > 0)):
+                if((result_vector[0] >= 0) and (result_vector[1] >= 0)):
                     return([result_vector[0], result_vector[1]])
                 else:
                     return(-1)
